@@ -69,6 +69,7 @@ public class VideoRepository {
 					}
 					logger.info("user {}", user);
 					em.persist(user);
+					users.add(user);
 				});
 			}
 			if(!CollectionUtils.isEmpty(request.getUserGroupIds())) {
