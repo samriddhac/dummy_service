@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,18 +23,21 @@ public class VideoController {
 	@Autowired
 	private VideoService videoService;
 
+	@CrossOrigin(origins = "*")
 	@GetMapping(path="/videos")
 	@ResponseBody
 	public List<Video> getUsers() {
 		return videoService.getAllVideos();
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping(path="/videos/groups")
 	@ResponseBody
 	public List<VideoGroup> getGroups() {
 		return videoService.getAllVideoGroups();
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PutMapping(path="/videos/users")
 	@ResponseBody
 	public List<User> assignVideosUsers(@RequestBody UserVideoRequestModel request) {

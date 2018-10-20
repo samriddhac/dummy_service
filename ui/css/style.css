@@ -1,0 +1,54 @@
+.text-bold {
+
+}
+
+.toggle-btn-round-left{
+	width: 70px;
+	height: 30px;
+	border-radius: 15px 0px 0px 15px;
+}
+
+.toggle-btn-round-right{
+	width: 70px;
+	height: 30px;
+	border-radius: 0px 15px 15px 0px;
+}
+
+.section-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.section-item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	padding: 30px;
+	margin: 30px;
+}
+
+.header-text {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.select-box {
+	padding-top: 30px;
+	margin-top: 30px;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.assign-btn-container {
+	display: flex;
+	justify-content: center;
+}
