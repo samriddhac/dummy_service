@@ -5,4 +5,4 @@ COPY ./package-lock.json /src/package-lock.json
 RUN npm install --silent
 ENV NODE_ENV development
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
