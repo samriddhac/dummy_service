@@ -29,6 +29,7 @@ public class UserGroup {
 	@OneToMany(mappedBy="id")
 	private List<User> users;
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {
 			CascadeType.PERSIST,
 			CascadeType.MERGE
@@ -39,6 +40,7 @@ public class UserGroup {
 	)
 	private List<Video> videos = new ArrayList<>();
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {
 			CascadeType.PERSIST,
 			CascadeType.MERGE

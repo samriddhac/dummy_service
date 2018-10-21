@@ -9,6 +9,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @NamedQueries({
 	@NamedQuery(name="getAllVideoGroups", 
@@ -21,6 +23,7 @@ public class VideoGroup {
 	private int id;
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="id")
 	private List<Video> videos;
 	

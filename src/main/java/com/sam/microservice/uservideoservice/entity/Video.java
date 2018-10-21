@@ -9,6 +9,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @NamedQueries({
 	@NamedQuery(name="getAllVideos", 
@@ -23,11 +25,13 @@ public class Video {
 	private String name;
 	
 	@OneToOne
-	private UserGroup group;
+	private VideoGroup group;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="videos")
 	private List<User> users;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="videoGroups")
 	private List<User> usersbyGroups;
 	
@@ -35,7 +39,7 @@ public class Video {
 		super();
 	}
 
-	public Video(long id, String name, UserGroup group) {
+	public Video(long id, String name, VideoGroup group) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,11 +62,11 @@ public class Video {
 		this.name = name;
 	}
 
-	public UserGroup getGroup() {
+	public VideoGroup getGroup() {
 		return group;
 	}
 
-	public void setGroup(UserGroup group) {
+	public void setGroup(VideoGroup group) {
 		this.group = group;
 	}
 

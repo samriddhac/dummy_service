@@ -75,23 +75,53 @@ class UserVideo extends Component {
 	}
 
 	_renderToggleBar(type) {
-		let firstText = 'User';
-		let secondText = 'Group';
 
 		if (type==='right') {
-			firstText = 'Video';
+			let checkedVal = false;
+			if(this.state.activeRight===1) {
+				checkedVal = true;
+			}
+			return (
+				<div className="onoffswitch1">
+				    <input type="checkbox" name="onoffswitch1" 
+				    className="onoffswitch1-checkbox" id="myonoffswitch1" 
+				    checked={checkedVal}
+				    onChange={(e)=>{this._toggleClick(e,type)}}
+				    />
+				    <label className="onoffswitch1-label" htmlFor="myonoffswitch1">
+				        <span className="onoffswitch1-inner"></span>
+				        <span className="onoffswitch1-switch"></span>
+				    </label>
+			    </div>
+			);
 		}
-		return (
-			<div>
-				<button className={this._getToggleCss(1,type)} 
-					onClick={()=>{this._toggleClick(1,type)}}>{firstText}</button>
-				<button className={this._getToggleCss(2,type)} 
-					onClick={()=>{this._toggleClick(2, type)}}>{secondText}</button>
-			</div>
-		);
+		else {
+			let checkedVal = false;
+			if(this.state.activeLeft===1) {
+				checkedVal = true;
+			}
+			return (
+				<div className="onoffswitch2">
+				    <input type="checkbox" name="onoffswitch2" 
+				    className="onoffswitch2-checkbox" id="myonoffswitch2" 
+				    checked={checkedVal} 
+				    onChange={(e)=>{this._toggleClick(e,type)}}
+				    />
+				    <label className="onoffswitch2-label" htmlFor="myonoffswitch2">
+				        <span className="onoffswitch2-inner"></span>
+				        <span className="onoffswitch2-switch"></span>
+				    </label>
+			    </div>
+			);
+		}
 	}
 
-	_toggleClick(id,type) {
+	_toggleClick(e,type) {
+		console.log(e.target.checked);
+		let id = 1;
+		if(e.target.checked ===false) {
+			id=2;
+		}
 		let context = undefined;
 		let subtype = undefined;
 		if (type==='right' && id!==this.state.activeRight) {

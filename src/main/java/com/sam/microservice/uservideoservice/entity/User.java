@@ -15,6 +15,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="USERS")
 @NamedQueries({
@@ -30,6 +32,7 @@ public class User {
 	@OneToOne
 	private UserGroup group;
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {
 			CascadeType.PERSIST,
 			CascadeType.MERGE
@@ -40,6 +43,7 @@ public class User {
 	)
 	private List<Video> videos = new ArrayList<>();
 	
+	@JsonIgnore
 	@ManyToMany(cascade= {
 			CascadeType.PERSIST,
 			CascadeType.MERGE
