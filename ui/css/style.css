@@ -112,7 +112,10 @@
 }
 
 .onoffswitch1-switch,.onoffswitch2-switch {
-    display: block; width: 30px; margin: 0px;
+    display: block; 
+    width: 30px;
+    height:30px; 
+    margin: 0px;
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 30px;
     position: absolute; top: 0; bottom: 0; right: 56px;
@@ -138,4 +141,10 @@
 
 .onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-switch {
     right: 0px; 
+}
+
+.toast-container {
+	display: flex;
+	justify-content: center;
+	color: green;
 }

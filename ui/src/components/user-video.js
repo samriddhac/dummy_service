@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import {fetchNavData, saveMapping, USERS, VIDEOS, GROUPS} from '../actions/index';
 
 class UserVideo extends Component {
@@ -38,6 +39,14 @@ class UserVideo extends Component {
 	componentWillMount() {
 		this.props.fetchNavData(USERS);
 		this.props.fetchNavData(VIDEOS);
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.userVideo.save_event === true) {
+			toast.success("Saved successfully !", {
+		        position: toast.POSITION.TOP_CENTER
+		      });
+		}
 	}
 
 	handleChange(e,type) {
@@ -179,6 +188,7 @@ class UserVideo extends Component {
 
 		return(
 			<div className='main-container'>
+				<ToastContainer className="toast-container" autoClose={5000}/>
 				<div className='section-container'>
 					{this._renderBlock('left')}
 					{this._renderBlock('right')}
